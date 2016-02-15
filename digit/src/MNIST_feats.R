@@ -23,19 +23,18 @@ get.features = function(x, block.intens = 2, block.zero = 2){
 
 extrai.features = function(train.path, test.path){
   
-  train = read.csv(train.path)
+  train = read.csv("~/projetos/kaggle/digit/data/train.csv", header=TRUE)
   Label = train$label
   train = as.matrix(subset(train, select = -label))
   
-  test = as.matrix(read.csv(test.path))
+  test = as.matrix(read.csv("~/projetos/kaggle/digit/data/test.csv", header=TRUE))
   
   train = get.features(train)
   test = get.features(test)
   
-  write.csv(train, 'train_px22_cnt_zero22.csv', quote = FALSE, row.names = FALSE)
-  write.csv(test, 'test_px22_cnt_zero22.csv', quote = FALSE, row.names = FALSE)
-  write.csv(Label, 'labels.csv', quote = FALSE, row.names = FALSE)
+  write.csv(train, "~/projetos/kaggle/digit/data/R_extraction/train_px22_cnt_zero22.csv", quote = FALSE, row.names = FALSE)
+  write.csv(test, '~/projetos/kaggle/digit/data/R_extraction/test_px22_cnt_zero22.csv', quote = FALSE, row.names = FALSE)
+  write.csv(Label, '~/projetos/kaggle/digit/data/R_extraction/labels.csv', quote = FALSE, row.names = FALSE)
 }
 
-
-# extrai.features(train.path, test.path)
+extrai.features(train.path, test.path)

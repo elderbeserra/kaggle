@@ -36,17 +36,18 @@ param = {}
 param['objective'] = 'multi:softmax'
 # tuning
 param['eta'] = .05
-param['max_depth'] = 4
+param['max_depth'] = 6
 param['subsample'] = 0.95
 param['min_child_weight'] = 200
 param['colsample_bytree'] = 0.3
 param['num_class'] = 10
 
+
 # num_boost_round ~= 50/eta
 num_boost_round = 1000
 nfold = 4
 
-xtrain, xvalid = train_test_split(train, test_size=0.1, random_state=41)
+xtrain, xvalid = train_test_split(train, test_size=0.1, random_state=51)
 ytrain = xtrain['label']
 yvalid = xvalid['label']
 
